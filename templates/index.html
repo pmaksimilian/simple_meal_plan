@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm">
+        <form method="post" action="/" id="calculatorForm">
+            <div class="form-group">
+                <label for="sexSelect">Gender</label>
+                <select class="form-control" id="sexSelect" name="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weightEnter">Weight in kg</label>
+                <input type="number" class="form-control" id="weightEnter" name="weight" placeholder="Enter your weight" required>
+            </div>
+            <div class="form-group">
+                <label for="heightEnter">Height in cm</label>
+                <input type="number" class="form-control" id="heightEnter" name="height" placeholder="Enter your height" required>
+            </div>
+            <div class="form-group">
+                <label for="ageEnter">Age</label>
+                <input type="number" class="form-control" id="ageEnter" name="age" placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="activitySelect">How active are you?</label>
+                <select class="form-control" id="activitySelect" name="activity">
+                    <option value="1.2">Sedentary (Little or no exercise and desk job)</option>
+                    <option value="1.375">Lightly Active (Light exercise or sports 1-3 days a week)</option>
+                    <option value="1.55">Moderately Active (Moderate exercise or sports 3-5 days a week)</option>
+                    <option value="1.725">Very Active (Hard exercise or sports 6-7 days a week)</option>
+                    <option value="1.9">Extremely Active (Hard daily exercise or sports and physical job)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="goalSelect">What are your goals?</label>
+                <select class="form-control" id="goalSelect" name="goals">
+                    <option value="1">Maintain my weight</option>
+                    <option value="2">Lose 0.5 kg per week</option>
+                    <option value="3">Lose 1 kg per week</option>
+                    <option value="4">Gain 0.5 kg per week</option>
+                    <option value="5">Gain 1 kg per week</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-dark">Calculate</button>
+        </form>
+    </div>
+    <div class="col-sm">
+
+        <div class="results">
+            {% if calorie_intake %}
+            <p id="calories">{{ calorie_intake }} calories/day</p>
+            <p id="macros">carbohydrates: {{ macros["carbs"] }} grams<br>proteins: {{ macros["proteins"] }} grams<br>fats: {{ macros["fats"] }} grams</p>
+            <div class="row">
+                <div class="col-sm meal">Breakfast:</div>
+                <div class="col-sm food">
+                    {% for food in breakfast %}
+                        {{ food }} ({{ breakfast[food] }} grams)<br>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm meal">Brunch:</div>
+                <div class="col-sm food">
+                    {% for food in brunch %}
+                        {{ food }} ({{ brunch[food] }}{% if food != 'eggs' %} grams{% endif %})<br>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm meal">Lunch:</div>
+                <div class="col-sm food">
+                    {% for food in lunch %}
+                        {{ food }} ({{ lunch[food] }} grams)<br>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm meal">Dinner:</div>
+                <div class="col-sm food">
+                    {% for food in dinner %}
+                        {{ food }} ({{ dinner[food] }} grams)<br>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <div class="welcome-text">
+                <p>Welcome!</p>
+                <p>Here you can calculate your daily calorie intake, based on your goals.</p>
+                <p>You will also get optimal macro nutrient ratio, which you can use in your diet.</p>
+                <p>And for an easier start, also an example of daily meal plan, with personalized quantities based on your data! </p>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
