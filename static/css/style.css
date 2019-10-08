@@ -68,8 +68,7 @@
 }
 
 body {
-
-    background: url("../img/sports.png") repeat;
+    background-image: url("../img/sports.png") repeat;
 }
 
 footer {
