@@ -68,7 +68,8 @@
 }
 
 body {
-    background-image: url("../img/sports.png") repeat;
+    background-image: url("../img/sports.png");
+    background-repeat: repeat;
 }
 
 footer {
