@@ -68,7 +68,7 @@
 }
 
 body {
-    background-image: asset_path("../img/sports.png");
+    background-image: image-url("../img/sports.png");
     background-repeat: repeat;
 }
 
