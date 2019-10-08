@@ -1,26 +1,26 @@
 #calculatorForm {
     width: 350px;
-    border: solid;
-    border-color: silver;
     padding: 20px;
     background-color: #808080;
     display: inline-block;
     color: White;
-
+    border-radius: 10px;
+    opacity: 0.8;
 }
 
 .results {
-    border: solid;
-    border-color: silver;
     margin: 30px;
     padding: 30px;
     background-color: #808080;
     color: white;
     max-width: 500px;
+    border-radius: 10px;
+    opacity: 0.8;
 }
 
 .content {
     text-align: center;
+    height: 100%;
     padding: 40px 0 40px 0;
 }
 
@@ -33,27 +33,13 @@
 }
 
 .jumbotron {
-    background-image: url("/static/img/main1.png");
+    background-image: url("../img/main1.png");
+    opacity: 0.85;
     background-position: center;
     background-size: cover;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     text-align: center;
-}
-
-.bottom {
-    background-color: #d9d9d9;
-    line-height: 50px;
-    height: 50px;
-    text-align: center;
-    width: 100%;
-}
-
-.bottom-text {
-    margin: 0;
-    color: #808080;
-    font-style: italic;
-    padding-left: 10%;
 }
 
 #calories {
@@ -71,10 +57,26 @@
     font-weight: 300;
 }
 
+@media screen and (max-width: 768px) {
+    .meal {
+        text-align: center;
+    }
+}
+
 .food {
     text-align: left;
 }
 
 body {
-    background-color: #f2f2f2;
+
+    background: url("../img/sports.png") repeat;
+}
+
+footer {
+    font-size: 1rem;
+    bottom: 0.4rem;
+    right: 1rem;
+    text-align: right;
+    padding: 1rem;
+    color: grey;
 }
